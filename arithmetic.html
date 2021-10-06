@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arithmetic Page</title>
+</head>
+
+<body>
+
+    <h2>Saiteja Kattamuri computes</h2>
+
+    <form>
+        <label for="form1_ba">Enter a base</label>
+        <input type="number" id="form1_ba" name="form1_ba" step=2 value=10> <br>
+
+        <label for="form1_ex">Enter an exponent</label>
+        <input type="number" id="form1_ex" name="form1_ex" step=2 value=2> <br>
+
+        <input type="button" onclick="powers()" value="Compute">
+        <p id="result">Find result here</p>
+    </form>
+
+    <script>
+        var res = ""
+        power = 1
+        function powers() {
+            console.log("Getting form values")
+            base = document.getElementById("form1_ba").value
+            exponent = document.getElementById("form1_ex").value
+            // confirmed = confirm("Are these the values? " + age + " and " + nick)
+            for (i = 0; i < exponent; i++) {
+                power *= base
+                res = res + " " + power
+            }
+            out = document.getElementById("result")
+            if (res != null) {
+                out.innerHTML = "powers of base are: " + res
+            }
+        }
+    </script>
+
+</body>
+
+</html>

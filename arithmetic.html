@@ -27,7 +27,6 @@
             console.log("Getting form values")
             base = document.getElementById("form1_ba").value
             exponent = document.getElementById("form1_ex").value
-            // confirmed = confirm("Are these the values? " + age + " and " + nick)
             for (i = 0; i < exponent; i++) {
                 power *= base
                 res = res + " " + power
@@ -38,7 +37,46 @@
             }
         }
     </script>
+    <form>
+        <label for="addition">+</label>
+        <input id="addition" type="radio" value="plus" name="calculations" onclick="processRadio(this.value)">
+        <label for="timess">*</label>
+        <input id="times" type="radio" value="times" name="calculations" onclick="processRadio(this.value)">
+        <label for="minus">-</label>
+        <input id="minus" type="radio" value="minus" name="calculations" onclick="processRadio(this.value)">
+        <label for="divide">/</label>
+        <input id="divide" type="radio" value="divide" name="calculations" onclick="processRadio(this.value)">
+        <p id="result_radio">Find calculation result here</p><br>
+    </form>
+    <script>
+        let result = 0
+        let bases = 0
+        let exponent = 0
+        function processRadio(val) {
+            bases = document.getElementById("form1_ba").value
+            exponent = document.getElementById("form1_ex").value
+            document.getElementById("result_radio").value = val
+            number1 = parseInt(bases)
+            number2 = parseInt(exponent)
 
+            switch (val) {
+                case "plus":
+                    result = number1 + number2
+                    break
+                case "minus":
+                    result = number1 - number2
+                    break
+                case "times":
+                    result = number1 * number2
+                    break
+                case "divide":
+                    result = number1 / number2
+                    break
+            }
+            out = document.getElementById("result_radio")
+            out.innerHTML = "Result of " + number1 + " " + val + " " + number2 + " is:  " + result
+        }
+    </script>
 </body>
 
 </html>

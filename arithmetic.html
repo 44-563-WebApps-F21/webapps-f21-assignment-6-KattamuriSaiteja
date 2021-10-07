@@ -3,21 +3,29 @@
 
 <head>
     <title>Arithmetic Page</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<div class="container-fluid">
+    <h2 style="color: coral;">Saiteja Kattamuri computes</h2>
 
-    <h2>Saiteja Kattamuri computes</h2>
-
-    <form>
+    <form style="margin: 10px 0;">
+	 <div class="form-check">
         <label for="form1_ba">Enter a base</label>
         <input type="number" id="form1_ba" name="form1_ba" step=2 value=10> <br>
 
         <label for="form1_ex">Enter an exponent</label>
         <input type="number" id="form1_ex" name="form1_ex" step=2 value=2> <br>
 
-        <input type="button" onclick="powers()" value="Compute">
-        <p id="result">Find result here</p>
+        <input type="button" class="btn btn-md btn-success" onclick="powers()" value="Compute"><br><br>
+        <p id="result">Find result here</p> 
+		</div>
     </form>
 
     <script>
@@ -37,7 +45,8 @@
             }
         }
     </script>
-    <form>
+    <form style="margin: 10px 0;">
+	 <div class="form-check">
         <label for="addition">+</label>
         <input id="addition" type="radio" value="plus" name="calculations" onclick="processRadio(this.value)">
         <label for="timess">*</label>
@@ -47,6 +56,7 @@
         <label for="divide">/</label>
         <input id="divide" type="radio" value="divide" name="calculations" onclick="processRadio(this.value)">
         <p id="result_radio">Find calculation result here</p><br>
+		<div>
     </form>
     <script>
         let result = 0
@@ -74,7 +84,7 @@
                     break
             }
             out = document.getElementById("result_radio")
-            out.innerHTML = "Result of " + number1 + " " + val + " " + number2 + " is:  " + result
+            out.innerHTML = "Result of " + number1 + " " + val + " " + number2 + "is:  " + result
         }
     </script>
 </body>

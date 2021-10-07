@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cars</title>
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+    <h2 style="color: coral;">Saiteja Kattamuri orders a car</h2>
+
+    <form style="margin: 10px 0;">
+        <div class="form-check">
+            
+            <input type="checkbox" id="chkbox1" name="checkbox1" value="electric"> 
+			<label for="form1_electric">electric</label><br>
+
+            <input type="checkbox" id="chkbox2" name="checkbox2" value="ac"> 
+			<label for="form1_ac">ac</label><br>
+
+            <input type="checkbox" id="chkbox3" name="checkbox3" value="gps">
+			<label for="form1_gps">gps</label><br>
+
+            <input type="button" class="btn btn-md btn-success" onclick="orderCar()" value="Order a car">
+        </div>
+    </form>
+
+    <form style="width: 200px;">
+        <div class="form-check">
+            <label for="text1">Enter a property</label>
+            <input type="text" id="text1" name="text1" value="color"><br>
+
+            <label for="text2">Enter a value</label>
+            <input type="text" id="text2" name="text2"><br>
+<br>
+            <input type="button" class="btn btn-warning" onclick="updateCar()" value="Update the car">
+            <br>
+			<br>
+        </div>
+    </form>
+	<p id="carResult">Find the results here </p><br>
+    </div>
+    <script>
+        var my_car = {}
+        function orderCar() {
+            my_car = {}
+            first = document.getElementById("chkbox1").checked
+            second = document.getElementById("chkbox2").checked
+            third = document.getElementById("chkbox3").checked
+            out = document.getElementById("carResult")
+            first ? my_car["electric"] = true : my_car["electric"] = false
+            second ? my_car["ac"] = true : my_car["ac"] = false
+            third ? my_car["gps"] = true : my_car["gps"] = false
+            my_car = JSON.stringify(my_car)
+            out.innerHTML = my_car
+            my_car = JSON.parse(my_car)
+        }
+    </script>
+    <script>
+        function updateCar() {
+            text1 = document.getElementById("text1").value
+            text2 = document.getElementById("text2").value
+            my_car[text1] = text2
+            document.getElementById("carResult").innerHTML = JSON.stringify(my_car)
+            console.log(my_car)
+        }
+    </script>
+
+</body>
+
+</html>
